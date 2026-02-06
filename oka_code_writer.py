@@ -76,19 +76,15 @@ def parse(oka_code):
 	return (language[lang], subject_matter[s], topic[t], geographic_ethnic[g])
 
 
-################################
-### Read and update the data ###
-################################
+################################################################
+### Read the spreadsheet and write data to the 4 new columns ###
+################################################################
 
-repo_file_path = "C:/Users/cecil/OneDrive/Desktop/oka repo/in.csv"
-
-# small_sample_file_path = "C:/Users/cecil/OneDrive/Desktop/oka repo/Small_Sample_of_oka_repo_for_testing - BOOK_J101-J400.csv"
-
-# test_path = "sample.csv"
+repo_file_path = "in.csv"
 outfile = "out.csv"
-def read_write(csv_file_path, output_file_path):
+def read_write(input_file_path, output_file_path):
 	"""Takes the path of the file that has the spreadsheet and does stuff."""
-	with open(csv_file_path, mode = "r", encoding="utf-8") as file:
+	with open(input_file_path, mode = "r", encoding="utf-8") as file:
 		csv_reader = csv.DictReader(file)  # Uses column names as dictionary keys
 
 		with open(output_file_path, 'w', newline='') as csvfile:
@@ -99,7 +95,7 @@ def read_write(csv_file_path, output_file_path):
 					# Write generated data to a new file
 					writer = csv.writer(csvfile)
 					writer.writerow(generated_words)
-				else:  # otherwise write a blank row
+				else:  # otherwise it's an empty row, so write a blank row
 					writer.writerow(['', '', '', ''])
 	print(f"Done! See results in {output_file_path}.")
 
