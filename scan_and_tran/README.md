@@ -14,10 +14,10 @@ The objective of what we're doing here is to provide a starting point for people
 - [ ] Get the URLs into the Sheet.
 - [ ] Figure out how to use Google Cloud Vision library (the thing that runs Google lens), e.g. if using Python, it would be https://pypi.org/project/google-cloud-vision/ and you could try the tutorial project https://github.com/googlecodelabs/cloud-vision-python
   - [ ] Be able to scan a file and get the text of it.
-  - [ ] Write it the transcription, e.g. into a .csv file
+  - [ ] Write the transcription to file, e.g. into one "cell" of a .csv file.
 - [ ] Figure out how to use Cloud Translation API (the thing behind Google Translate) https://docs.cloud.google.com/translate/docs/reference/rest
   - [ ] Be able to translate some text.
   - [ ] Be able to translate the text from a scanned file from above.
-  - [ ] Write the translation to the same file.
+  - [ ] Write the translation to file, e.g. into another cell of the same .csv mentioned above.
 - [ ] Repeat!
-- Oh at some point get a cloud account, hopefully we can run it on the free tier. https://docs.cloud.google.com/free/docs/free-cloud-features it's here somewhere https://console.cloud.google.com/
+- [ ] Oh at some point get a cloud account, hopefully we can run it on the free tier. https://docs.cloud.google.com/free/docs/free-cloud-features it's here somewhere https://console.cloud.google.com/
