@@ -14,7 +14,8 @@ test_image_filename = 'YSB_Box_8_F1 Memo for S F Branch Mananger 昭和十年壱
 # TODO: given a file, (scan with Cloud Vision API), output transcription
 def transcribe(image_filename):
 	"""Image file goes in, text comes out."""
-	return "いくつかの日本語のテキスト"
+	
+	return "いくつかの日本語のテキスト"  # STUB
 
 image_file = test_image_filename
 jpn_transcription = transcribe(image_file)
@@ -27,7 +28,7 @@ sys.stdout.buffer.write(byte_str)
 #       it might be that we could do it directly from the Vision library I DUNNO
 def translate_to_english(jpn_text):
 	"""Japanese text goes in, English text comes out."""
-	return 'Some English text'
+	return 'Some English text'  # STUB
 
 eng_translation = translate_to_english(jpn_transcription)
 print(f"\ntranslate_to_english gives: {eng_translation}.")

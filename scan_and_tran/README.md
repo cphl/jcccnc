@@ -11,7 +11,7 @@ The objective of what we're doing here is to provide a starting point for people
 
 ## Requirements to run the thing
 - Python
-- Errr... actually this might make this more open than we want it to be. Nevermind for now [was: python libraries, if you don't want to have to download the sheet yourself: `pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib`]
+- python libraries, if you don't want to have to download the sheet yourself: `pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib`
 - ...
 
 
@@ -19,7 +19,7 @@ The objective of what we're doing here is to provide a starting point for people
 - [x] Get the filenames into the Sheet. --> use copy-paste, then we don't need to do authentication and avoid security risks. To copy the filenames, highlight and the do Ctrl-Shift-C (otherwise it copies the URLs which is good for the next step, but not this one). Paste it in a text editor that can do Find-and-Replace to remove the `.tif` file extension. Paste that into the column!
   - [ ] Ok fine, future work https://www.geeksforgeeks.org/python/get-list-of-files-and-folders-in-google-drive-storage-using-python/
 - [x] Get the URLs into the Sheet --> oh it's way easier to just copy-paste from the Drive directory (and then we don't have to do authentication / authorization stuff)
-- Oh we need to do auth for the next step anyway don't we. Booo.. Oh maybe I can do it on my own copy of it! Clunky but less security dealings.
+- Oh we need to do auth for the next step anyway don't we. Booo. FIIIINE
 - [ ] Figure out how to use Google Cloud Vision library (the thing that runs Google lens), e.g. if using Python, it would be https://pypi.org/project/google-cloud-vision/ and you could try the tutorial project https://github.com/googlecodelabs/cloud-vision-python
   - [ ] Be able to scan a file and get the text of it.
   - [ ] Write the transcription to file, e.g. into one "cell" of a .csv file.
