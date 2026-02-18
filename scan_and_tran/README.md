@@ -17,15 +17,17 @@ The objective of what we're doing here is to provide a starting point for people
 
 ## Steps to do the thing we want to do
 - [x] Get the filenames into the Sheet. --> use copy-paste, then we don't need to do authentication and avoid security risks. To copy the filenames, highlight and the do Ctrl-Shift-C (otherwise it copies the URLs which is good for the next step, but not this one). Paste it in a text editor that can do Find-and-Replace to remove the `.tif` file extension. Paste that into the column!
-  - [ ] Ok fine, future work https://www.geeksforgeeks.org/python/get-list-of-files-and-folders-in-google-drive-storage-using-python/
-- [x] Get the URLs into the Sheet --> oh it's way easier to just copy-paste from the Drive directory (and then we don't have to do authentication / authorization stuff)
-- Oh we need to do auth for the next step anyway don't we. Booo. FIIIINE
+  - [ ] Future work: automate the retrieval of the filenames https://www.geeksforgeeks.org/python/get-list-of-files-and-folders-in-google-drive-storage-using-python/
+- [x] Get the URLs into the Sheet --> easy to just copy-paste from the Drive directory (and then we don't have to do authentication / authorization stuff)
+- [ ] Future work: automate the retrieval of the Drive links for the files.
 - [ ] Figure out how to use Google Cloud Vision library (the thing that runs Google lens), e.g. if using Python, it would be https://pypi.org/project/google-cloud-vision/ and you could try the tutorial project https://github.com/googlecodelabs/cloud-vision-python
-  - [ ] Be able to scan a file and get the text of it.
+  - [ ] Be able to scan a file and get the text of it. https://docs.cloud.google.com/vision/docs/ocr
   - [ ] Write the transcription to file, e.g. into one "cell" of a .csv file.
 - [ ] Figure out how to use Cloud Translation API (the thing behind Google Translate) https://docs.cloud.google.com/translate/docs/reference/rest
   - [ ] Be able to translate some text.
   - [ ] Be able to translate the text from a scanned file from above.
   - [ ] Write the translation to file, e.g. into another cell of the same .csv mentioned above.
 - [ ] Repeat!
-- [ ] Oh at some point get a cloud account, hopefully we can run it on the free tier. https://docs.cloud.google.com/free/docs/free-cloud-features it's here somewhere https://console.cloud.google.com/
+- [ ] Oh at some point get a cloud account.
+  - [X] Sign up for free trial, on personal account: we have 90 days starting 2026-Feb-18
+  - [ ] hopefully we can run it on the free tier. https://docs.cloud.google.com/free/docs/free-cloud-features it's here somewhere https://console.cloud.google.com/
