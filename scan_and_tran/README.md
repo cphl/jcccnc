@@ -1,7 +1,7 @@
 # Scan and transcribe, and try to translate
 
 ## Objective
-The source is a Google Drive directory containing image files which are scans of documents typed or hand-written in Japanese. The goal is to fill in a spreadsheet with:
+The source is a Google Drive directory containing image files which are scans of documents typed or hand-written in Japanese: https://drive.google.com/drive/folders/1xeusaL_dbVq0ai3yiTV03Hs3-JvqpU6i The goal is to fill in a spreadsheet with:
 - Collection ID (the name of the image file, without `.tif` extension).
 - The translation to English.
 - Transcription of the Japanese text.
@@ -20,7 +20,7 @@ The objective of what we're doing here is to provide a starting point for people
   - [ ] Future work: automate the retrieval of the filenames https://www.geeksforgeeks.org/python/get-list-of-files-and-folders-in-google-drive-storage-using-python/
 - [x] Get the URLs into the Sheet --> easy to just copy-paste from the Drive directory (and then we don't have to do authentication / authorization stuff)
 - [ ] Future work: automate the retrieval of the Drive links for the files.
-- [ ] Figure out how to use Google Cloud Vision library (the thing that runs Google lens), e.g. if using Python, it would be https://pypi.org/project/google-cloud-vision/ and you could try the tutorial project https://github.com/googlecodelabs/cloud-vision-python
+- [ ] Figure out how to use Google Cloud Vision library (the thing that runs Google lens), e.g. if using Python, it would be https://pypi.org/project/google-cloud-vision/ and you could try the tutorial project https://github.com/googlecodelabs/cloud-vision-python. For text in scanned documents, Document AI is recommended for OCR. https://docs.cloud.google.com/document-ai/docs/overview
   - [ ] Be able to scan a file and get the text of it. https://docs.cloud.google.com/vision/docs/ocr
   - [ ] Write the transcription to file, e.g. into one "cell" of a .csv file.
 - [ ] Figure out how to use Cloud Translation API (the thing behind Google Translate) https://docs.cloud.google.com/translate/docs/reference/rest
