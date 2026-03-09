@@ -20,10 +20,11 @@ The objective of what we're doing here is to provide a starting point for people
   - [ ] Future work: automate the retrieval of the filenames https://www.geeksforgeeks.org/python/get-list-of-files-and-folders-in-google-drive-storage-using-python/
 - [x] Get the URLs into the Sheet --> easy to just copy-paste from the Drive directory (and then we don't have to do authentication / authorization stuff)
   - [ ] Future work: automate the retrieval of the Drive links for the files.
+
 There is a file size limit on what can be processed using the the APIs. However, it seems to be ok if uploaded from Google Cloud Storage.
 One option is to upload the large scanned files to Google Cloud Storage, process it, then delete it from cloud storage (because it costs more money to store it over time).
 - [ ] Figure out programmatic cloud storage operations:
-  - [ ] Upload from Google Drive locations
+  - [ ] Upload to GCP blob storage from Google Drive locations
   - [ ] Delete from GCP blob storage
 - [ ] Be able to scan a file and get the text of it.
   - e.g. Use Cloud Vision to scan for transcription of Japanese. https://docs.cloud.google.com/vision/docs/ocr
