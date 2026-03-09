@@ -2,6 +2,7 @@ import csv
 import io
 import sys
 
+
 test_image_url = 'https://drive.google.com/open?id=1atcLItyeFJabUcFLzvfO0pjq_0fKl3pp&usp=drive_copy'
 test_image_filename = 'YSB_Box_8_F1 Memo for S F Branch Mananger 昭和十年壱月十六日0002.tif'
 
@@ -10,8 +11,7 @@ test_image_filename = 'YSB_Box_8_F1 Memo for S F Branch Mananger 昭和十年壱
 
 # TODO: read URL links, probably similar to above
 
-
-# TODO: given a file, (scan with Cloud Vision API), output transcription
+# TODO: given a file, (scan with Cloud Vision OCR), output transcription
 def transcribe(image_filename):
 	"""Image file goes in, text comes out."""
 	
