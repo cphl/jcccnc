@@ -1,6 +1,7 @@
 # venvs
 translate_env
 
-# scan files
+# scans or image files
+*.jpg
 *.tif
 *.tiff
