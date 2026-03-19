@@ -27,6 +27,11 @@ One option is to upload the large scanned files to Google Cloud Storage, process
   - [x] Create a (temporary) Google Cloud Storage bucket.
   - [x] Delete the GCS bucket.
   - [ ] Upload to GCP blob storage from Google Drive locations
+    - [ ] One way (the only way without colab?) to do this is to specify the location in a .tsv of URLs stored publicly accessible on the internet https://docs.cloud.google.com/storage-transfer/docs/create-url-list
+    - [ ] https://docs.cloud.google.com/storage-transfer/docs/create-url-list#hosting_the_url_list put the list in a cloud bucket and give the service agent access.
+    [ OR ...
+    - [x] Create a managed folder in the bucket so that we can make it public access https://docs.cloud.google.com/storage/docs/access-control/making-data-public?authuser=0#console_1 and put the .tsv file there.
+    ]
   - [ ] Delete from GCP blob storage
 - [ ] Be able to scan a file and get the text of it.
   - e.g. Use Cloud Vision to scan for transcription of Japanese. https://docs.cloud.google.com/vision/docs/ocr

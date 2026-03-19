@@ -9,11 +9,11 @@ from google.cloud import storage  # need `pip install --upgrade google-cloud-sto
 
 
 # WORKS (with the above auth steps) Create bucket for temporary usage in GCS
-storage_client = storage.Client()
-bucket_name = "test_transient_bucket"
-bucket = storage_client.create_bucket(bucket_name)
+# storage_client = storage.Client()
+# bucket_name = "test_transient_bucket"
+# bucket = storage_client.create_bucket(bucket_name)
 
-print(f"Bucket {bucket.name} created.")
+# print(f"Bucket {bucket.name} created.")
 
 ## Confirmed that the bucket was created: https://console.cloud.google.com/storage/browser?project=project-9301190b-e716-4e6e-a10&prefix=&forceOnBucketsSortingFiltering=true&bucketType=live
 
@@ -21,19 +21,38 @@ print(f"Bucket {bucket.name} created.")
 # https://docs.cloud.google.com/storage-transfer/docs/create-url-list
 # The list needs to be stored at a public URL or in a bucket, let's put it there first for simplicity
 
+# Not working yet!
+# From gcs but using the publicly accessible https instead of gcs address...
+# Instructions are to make a transfer job using the REST API but
+# this runs periodically and we only need to run this once
+# at the beginning of one Drive folder being processed.
+# Oh well, try to make it simpler later.
+# We want to do
+# POST https://storagetransfer.googleapis.com/v1/transferJobs
+# {
+#   "projectId": "project-9301190b-e716-4e6e-a10",
+#   "transferSpec": {
+#     "httpDataSource": {
+#       "listUrl": "https://storage.googleapis.com/test_transient_bucket/urllist/sample_urllist.tsv"
+#     },
+#     "gcsDataSink": {
+#       "bucketName": "test_transient_bucket"
+#     }
+#   },
+#   "status": "ENABLED"
+# }
 
+# TODO: delete contents of bucket or make force actually work
 
 # WORKS! Delete the bucket
-# storage_client = storage.Client()
-# bucket_name = "test_transient_bucket"
-# bucket = storage_client.get_bucket(bucket_name)
-# bucket.delete(force=True)
-# print(f"Bucket {bucket.name} deleted")
+storage_client = storage.Client()
+bucket_name = "test_transient_bucket"
+bucket = storage_client.get_bucket(bucket_name)
+bucket.delete(force=True)  # interesting... this doesn't work
+print(f"Bucket {bucket.name} deleted")
 
 # Upload a local file to GCS
-
-# TODO: upload a file from Google drive directly to Cloud Storage
-# The source drive is shared with me so hopefully I can use this method of mounting the drive:
+# via colab
 # https://colab.research.google.com/notebooks/io.ipynb#scrollTo=c2W5A2px3doP
 
 
