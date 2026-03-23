@@ -53,10 +53,31 @@ def delete_bucket(bucket_name):
 # via colab
 # https://colab.research.google.com/notebooks/io.ipynb#scrollTo=c2W5A2px3doP
 
-# Delete a file from cloud storage
+def delete_blob(bucket_name, blob_name):
+    """Deletes an object from the bucket."""
+
+    storage_client = storage.Client()
+
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(blob_name)
+    generation_match_precondition = None
+
+    # Optional: set a generation-match precondition to avoid potential race conditions
+    # and data corruptions. The request to delete is aborted if the object's
+    # generation number does not match your precondition.
+    blob.reload()  # Fetch blob metadata to use in generation_match_precondition.
+    generation_match_precondition = blob.generation
+
+    blob.delete(if_generation_match=generation_match_precondition)
+
+    print(f"Blob {blob_name} deleted.")
 
 
 # Do all the things
 bucket_name = "test_transient_bucket"
+
 # bucket = create_bucket(bucket_name)  # See it at https://console.cloud.google.com/storage/browser?project=project-9301190b-e716-4e6e-a10&prefix=&forceOnBucketsSortingFiltering=true&bucketType=live
-# delete_bucket
+
+# filename = "sample_urllist.tsv"
+# delete_blob(bucket_name, filename)
+# delete_bucket(bucket_name)
