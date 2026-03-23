@@ -6,16 +6,13 @@ from google.cloud import storage  # need `pip install --upgrade google-cloud-sto
 
 # Will need auth. try https://pypi.org/project/google-auth/ as oauth2client is deprecated
 
+def create_bucket(bucket_name):
+	"""Needs the above auth steps."""
+	storage_client = storage.Client()
+	bucket = storage_client.create_bucket(bucket_name)
+	print(f"Bucket {bucket.name} created.")
 
-
-# WORKS (with the above auth steps) Create bucket for temporary usage in GCS
-# storage_client = storage.Client()
-# bucket_name = "test_transient_bucket"
-# bucket = storage_client.create_bucket(bucket_name)
-
-# print(f"Bucket {bucket.name} created.")
-
-## Confirmed that the bucket was created: https://console.cloud.google.com/storage/browser?project=project-9301190b-e716-4e6e-a10&prefix=&forceOnBucketsSortingFiltering=true&bucketType=live
+	return bucket
 
 # Upload from a TSV of the URL of the Drive files
 # https://docs.cloud.google.com/storage-transfer/docs/create-url-list
@@ -44,17 +41,22 @@ from google.cloud import storage  # need `pip install --upgrade google-cloud-sto
 
 # TODO: delete contents of bucket or make force actually work
 
-# WORKS! Delete the bucket
-storage_client = storage.Client()
-bucket_name = "test_transient_bucket"
-bucket = storage_client.get_bucket(bucket_name)
-bucket.delete(force=True)  # interesting... this doesn't work
-print(f"Bucket {bucket.name} deleted")
+
+def delete_bucket(bucket_name):
+	"""Bucket needs to be empty."""
+	storage_client = storage.Client()
+	bucket = storage_client.get_bucket(bucket_name)
+	bucket.delete(force=True)  # interesting... this doesn't work
+	print(f"Bucket {bucket.name} deleted")
 
 # Upload a local file to GCS
 # via colab
 # https://colab.research.google.com/notebooks/io.ipynb#scrollTo=c2W5A2px3doP
 
-
 # Delete a file from cloud storage
 
+
+# Do all the things
+bucket_name = "test_transient_bucket"
+# bucket = create_bucket(bucket_name)  # See it at https://console.cloud.google.com/storage/browser?project=project-9301190b-e716-4e6e-a10&prefix=&forceOnBucketsSortingFiltering=true&bucketType=live
+# delete_bucket
